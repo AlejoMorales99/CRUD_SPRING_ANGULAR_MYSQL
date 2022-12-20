@@ -1,0 +1,60 @@
+<div class="container-fluid"><br><br>
+    <div class="row">
+
+        <div class="col-md-6 text-center  ">
+            <form (ngSubmit)="crearCliente()"
+                class="w-75 shadow-lg mx-auto bg-dark text-white p-3 rounded-2 border border-1 border-danger ">
+                <div class="mb-3">
+                    <label class="form-label">Ingrese su nombre</label>
+                    <input [(ngModel)]="nombre" name="nombre" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ingrese su apellido</label>
+                    <input [(ngModel)]="apellido" name="apellido" type="text" class="form-control">
+                </div>
+                <div class="mb-3 ">
+                    <label class="form-label">Ingrese su Email</label>
+                    <input [(ngModel)]="email" name="email" type="email" class="form-control">
+                </div>
+                <input type="submit" class="btn btn-success">
+            </form>
+        </div>
+
+        <div class="col-md-6 ">
+
+            Buscar Cliente por id
+            <form class="d-flex " action="">
+
+                <input [(ngModel)]="buscarClienteId" name="buscarClienteId" type="text"
+                    class="form-control border border-1 border-dark w-25">
+
+                <button (click)="buscarUnCliente()" class=" btn btn-primary">Buscar</button>
+            </form><br>
+            <table class=" shadow-lg table table-dark w-75 ">
+
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">APELLIDO</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">edad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let clientes of guardarClientes">
+                        <td> {{clientes.id}} </td>
+                        <td> {{clientes.nombre}} </td>
+                        <td> {{clientes.apellido}} </td>
+                        <td> {{clientes.email}} </td>
+                        <td> {{clientes.edad}} </td>
+                        <td> <button (click)="eliminarCliente(clientes.id )" class="btn btn-danger">Eliminar</button>
+                        </td>
+                        <td> <a [routerLink]="['/editarCliente',clientes.id]" class="btn btn-warning">Editar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

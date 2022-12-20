@@ -1,0 +1,28 @@
+<div class="container-fluid"><br><br>
+    <div class="row">
+        <div class="col-md-12">
+
+            <form (ngSubmit)="actualizarDatos()"
+                class="w-50 mx-auto shadow-lg  bg-dark text-white p-3 rounded-2 border border-1 border-danger ">
+                <h1>Editar Cliente </h1>
+
+                <label class="form-label">IdCliente</label>
+                <input class="form-control" [value]="id" readonly [(ngModel)]="id" type="text">
+
+                <div class="mb-3">
+                    <label class="form-label">Actualizar nombre</label>
+                    <input [(ngModel)]="nombreActualizar" name="nombre" type="text" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Actuliazar apellido</label>
+                    <input [(ngModel)]="apellidoActualizar" name="apellido" type="text" class="form-control">
+                </div>
+                <div class="mb-3 ">
+                    <label class="form-label">Actualizar Email</label>
+                    <input [(ngModel)]="emailActualizar" name="email" type="text" class="form-control">
+                </div>
+                <button class="btn btn-success">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
